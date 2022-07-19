@@ -1,0 +1,21 @@
+<?php
+define("tr","<tr>");
+define("trc","</tr>");
+define("th","<th>");
+define("thc","</th>");
+define("td","<td>");
+define("opt","<option>");
+define("optc","</option>");
+define("tdc","</td>");
+define("resetform", 'setTimeout(function(){$(".form").trigger("reset");},2);');
+define("hideloader", 'setTimeout(function(){$("#loader").hide("fast");},2);');
+define("response", "<div id='response'></div>");
+define("engine", "../libs/php/engine.php");
+define("attachments","../uploads/attachments/");
+define("dp","../uploads/profile/");
+define("domain","http://localhost/upas");
+define("server","localhost");
+define("db","valuation");
+define("username","root");
+define("db_pwd_r", "balainesh420");
+// require_once 'auth.php';

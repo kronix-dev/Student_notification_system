@@ -1,0 +1,454 @@
+{
+    "roles": [
+        {
+            "name": "Cashier",
+            "num": "1",
+            "init": "Cashier"
+        },
+        {
+            "name": "District health Officer",
+            "num": "2",
+            "init": "DHEO"
+        },
+        {
+            "name": "District Town planner",
+            "num": "3",
+            "init": "DTP"
+        },
+        {
+            "name": "Head of Department",
+            "num": "4",
+            "init": "HOD"
+        },
+        {
+            "name": "District health Officer",
+            "num": "5",
+            "init": "DHEO"
+        },
+        {
+            "name": "District Engineer",
+            "num": "6",
+            "init": "DE"
+        }
+    ],
+    "forms": {
+        "request": [
+            {
+                "name": "Normal Form",
+                "block": [
+                    {
+                        "name": "General Information",
+                        "inputs": [
+                            {
+                                "name": "name",
+                                "placeholder":"type",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "fname",
+                                "placeholder":"Full name",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "addr",
+                                "placeholder":"Address",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "phone",
+                                "placeholder":"Phone number",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "email",
+                                "placeholder":"Email Address",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            }
+                            
+                        ]
+                    },
+                    {
+                        "name":"Province of the building project",
+                        "inputs":[
+                            {
+                                "name": "region",
+                                "placeholder":"Region",
+                                "code":"nfb3-region",
+                                "type":"db",
+                                "array":false,
+                                "table":"getLocality",
+                                "view_type":"select",
+                                "onchange":"loadDistrict()",
+                                "options":[]
+                            },
+                            {
+                                "name": "district",
+                                "placeholder":"District Council",
+                                "code":"nfb3-district",
+                                "type":"select",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "ward",
+                                "placeholder":"ward",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "Village",
+                                "placeholder":"Village",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            }
+                        ]
+                    },
+                    {
+                        "name":"Plot Information",
+                        "inputs":[
+                            {
+                                "name": "plot_no",
+                                "placeholder":"Plot Number",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "block",
+                                "placeholder":"Block",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "area",
+                                "placeholder":"Area",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "plinth_area",
+                                "placeholder":"Plinth Area",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "built_area",
+                                "placeholder":"Built Area",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "plot_coverage",
+                                "placeholder":"Plot Coverage",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "plot_ratio",
+                                "placeholder":"Plot Ration",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "stories",
+                                "placeholder":"Plot Number",
+                                "code":"nfb1-name",
+                                "type":"radio",
+                                "options":[
+                                    "Single Store",
+                                    "MultiStore"
+                                ],
+                                "subInputs":[
+                                    [],
+                                    [{
+                                        "name": "plot_no",
+                                        "placeholder":"Plot Number",
+                                        "code":"nfb1-name",
+                                        "type":"text",
+                                        "array":false
+                                    }]
+                                ],
+                                "array":false
+                            },
+                            {
+                                "name": "plot_no",
+                                "placeholder":"Setbacks",
+                                "code":"nfb1-name",
+                                "type":"placeholder",
+                                "array":false
+                            },
+                            {
+                                "name": "front",
+                                "placeholder":"Front",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "left",
+                                "placeholder":"left",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "right",
+                                "placeholder":"Plot Number",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "back",
+                                "placeholder":"Rear",
+                                "code":"nfb1-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name": "land_use",
+                                "placeholder":"Land Use",
+                                "code":"nfb1-name",
+                                "type":"db",
+                                "table":"land_use",
+                                "view_type":"select",
+                                "array":false
+                            },
+                            {
+                                "name": "price",
+                                "placeholder":"Permit Price",
+                                "code":"nfb2-price",
+                                "type":"text",
+                                "array":false
+                            }
+                        ]
+                    },
+                    {
+                        "name":"Architect Profile",
+                        "inputs":[
+                            {
+                                "name": "arch_name",
+                                "placeholder":"Architect Name",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "arch_addr",
+                                "placeholder":"Architect Address",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "arch_phone",
+                                "placeholder":"Architect Phone",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "arch_email",
+                                "placeholder":"Architect Email Address",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "arch_reg",
+                                "placeholder":"Architect Registration Information",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            }
+                        ]
+                    },
+                    {
+                        "optional":true,
+                        "name":"Structural Engineer Profile",
+                        "inputs":[
+                            {
+                                "name": "struct_name",
+                                "placeholder":"Architect Name",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "struct_addr",
+                                "placeholder":"Architect Address",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "struct_phone",
+                                "placeholder":"Architect Phone",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "struct_email",
+                                "placeholder":"Architect Email Address",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name": "struct_reg",
+                                "placeholder":"Architect Registration Information",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false,
+                                "options":[]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "notes":[
+            {
+                "name":"Notice Form",
+                "block":[
+                    {
+                        "name":"Owner's Contact Information",
+                        "inputs":[
+                            {
+                                "name":"owner_name",
+                                "placeholder":"Owner's name",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name":"owner_phone",
+                                "placeholder":"Owner's phone",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name":"owner_address",
+                                "placeholder":"Owner's Address",
+                                "code":"nfb4-name",
+                                "type":"text",
+                                "array":false
+                            }
+                        ]
+                    },
+                    {
+                        "name":"Location Information",
+                        "inputs":[
+                            {
+                                "name":"x",
+                                "placeholder":"X-Coordinate (WGS 84 only)",
+                                "code":"x",
+                                "type":"text"
+                            },
+                            {
+                                "name":"Y",
+                                "placeholder":"X-Coordinate (WGS 84 only)",
+                                "code":"Y",
+                                "type":"text"
+                            },
+                            {
+                                "name":"landuse",
+                                "placeholder":"Land Use",
+                                "code":"xc",
+                                "type":"text"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "admin":[
+            {
+                "name":"User Creation Form",
+                "block":[
+                    {
+                        "name":"User Information",
+                        "inputs":[
+                            {
+                                "name":"name",
+                                "placeholder":"Fullname",
+                                "code":"",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name":"email",
+                                "placeholder":"Email Address",
+                                "code":"",
+                                "type":"email",
+                                "array":false
+                            },
+                            {
+                                "name":"phone",
+                                "placeholder":"Phone Number",
+                                "code":"",
+                                "type":"text",
+                                "array":false
+                            },
+                            {
+                                "name":"region",
+                                "placeholder":"Region",
+                                "code":"tb_region",
+                                "type":"db",
+                                "view_type":"select",
+                                "array":false
+                            },
+                            {
+                                "name":"district",
+                                "placeholder":"district",
+                                "code":"district",
+                                "type":"select",
+                                "array":false,
+                                "options":[]
+                            },
+                            {
+                                "name":"role",
+                                "placeholder":"Role",
+                                "code":"trt-role",
+                                "array":false,
+                                "type":"select",
+                                "options":["dheo","dtp","dls","de","fire","HOD"]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
